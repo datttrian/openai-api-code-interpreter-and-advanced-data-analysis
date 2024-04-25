@@ -1,0 +1,5 @@
+git pull --tags origin main --rebase
+docker run -e RUN_LOCAL=true -e VALIDATE_PYTHON_BLACK=true -v "$(pwd)":/tmp/lint github/super-linter
+export OPENAI_API_KEY=""
+uvicorn main:app --reload
+pip uninstall -y -r <(pip freeze)
